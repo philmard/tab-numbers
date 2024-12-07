@@ -11,6 +11,6 @@ This can help you navigate between Tabs faster by pressing Cmd + Number of the T
 
 Install my theme on Zen Browser: [Tab Numbers Theme](https://zen-browser.app/mods/22c9ec3b-7c62-46ae-991f-c8fff5046829)
 
-![Tab Numbers Theme](https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/22c9ec3b-7c62-46ae-991f-c8fff5046829/image.png)
+<img src="https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/22c9ec3b-7c62-46ae-991f-c8fff5046829/image.png" alt="Tab Numbers Image" width="500">
 
 Thank you for using my theme!
