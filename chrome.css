@@ -38,6 +38,8 @@ tabs {
   tab .tab-content:hover::after {
     content: "";
     display: none;
+    width: 0;
+    margin: 0;
   }
   
   /* Put tab numbers on the left side when expanded_side="Left" (AND in expanded mode) */
