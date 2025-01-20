@@ -33,7 +33,14 @@ tabs {
     margin-left: 3px;
     margin-right: 5px;
   }
-  /* put tab numbers on the left side when expanded_side="Left" (AND in expanded mode) */
+  
+  /*  Hide tab numbers on the right side when hovering over */
+  tab .tab-content:hover::after {
+    content: "";
+    display: none;
+  }
+  
+  /* Put tab numbers on the left side when expanded_side="Left" (AND in expanded mode) */
   :root:has(#theme-Tab-Numbers[uc-theme-expanded_side="Left"]) {
     tab .tab-content::after {
       display: none; /* Hide the ::after pseudo-element first */
@@ -85,7 +92,7 @@ tabs {
     font-size: var(--font_size, 80%); /* Default font size (same as "Small") */
     color: var(--number_color, inherit); /* Fallback to default color */
   }
-  /* put tab numbers on the left side when compact_side="Left" (AND in compact mode) */
+  /* Put tab numbers on the left side when compact_side="Left" (AND in compact mode) */
   :root:has(#theme-Tab-Numbers[uc-theme-compact_side="Left"]) {
     tab .tab-content::before {
       counter-increment: tab-counter;
