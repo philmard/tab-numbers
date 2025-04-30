@@ -1,4 +1,7 @@
 @-moz-document url-prefix("chrome:") {
+  #vertical-pinned-tabs-container > .zen-workspace-tabs-section[hidden="true"] {
+    display: none !important;
+  }
   tabs {
     counter-reset: tab-counter;
   } /* Automatically increment tab numbers for each .tab-content inside a tab */ /* Styles when the sidebar is expanded */
