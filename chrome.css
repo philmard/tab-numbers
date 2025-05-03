@@ -6,7 +6,7 @@
     counter-reset: tab-counter;
   } /* Automatically increment tab numbers for each .tab-content inside a tab */ /* Styles when the sidebar is expanded */
   @media (-moz-bool-pref: "zen.view.sidebar-expanded") {
-    tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::after {
+    .zen-workspace-tabs-section[active="true"] tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::after {
       counter-increment: tab-counter;
       content: counter(
         tab-counter
@@ -60,7 +60,7 @@
       tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::after {
         display: none; /* Hide the ::after pseudo-element first */
       }
-      tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::before {
+      .zen-workspace-tabs-section[active="true"] tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::before {
         counter-increment: tab-counter;
         content: counter(
           tab-counter
@@ -88,7 +88,7 @@
     }
   } /* Styles when the sidebar is NOT expanded (compact mode) */
   @media not (-moz-bool-pref: "zen.view.sidebar-expanded") {
-    tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::before {
+    .zen-workspace-tabs-section[active="true"] tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::before {
       counter-increment: tab-counter;
       content: counter(tab-counter) "";
       position: absolute;
@@ -104,7 +104,7 @@
       color: var(--number_color, inherit); /* Fallback to default color */
     } /* Put tab numbers on the left side when compact_side="Left" (AND in compact mode) */
     :root:has(#theme-Tab-Numbers[uc-theme-compact_side="Left"]) {
-      tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::before {
+      .zen-workspace-tabs-section[active="true"] tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::before {
         counter-increment: tab-counter;
         content: counter(tab-counter) "";
         position: absolute;
