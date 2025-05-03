@@ -43,7 +43,7 @@
     }
 
     /*  Hide tab numbers on the right side when hovering over */
-    tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content:hover::after {
+    .zen-workspace-tabs-section tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content:hover::after {
       opacity: 0; /* Make it invisible */
       width: 0; /* In order to bring the close button to the right */
       margin: 0;
