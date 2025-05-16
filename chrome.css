@@ -1,12 +1,12 @@
 #vertical-pinned-tabs-container > .zen-workspace-tabs-section[hidden="true"] {
   display: none !important;
 }
-tabs {
+#vertical-pinned-tabs-container {
   counter-reset: tab-counter;
 } /* Automatically increment tab numbers for each .tab-content inside a tab */ /* Styles when the sidebar is expanded */
 @media (-moz-bool-pref: "zen.view.sidebar-expanded") {
   .zen-workspace-tabs-section[active="true"]
-    tab:not([zen-glance-tab="true"])
+    tab
     > .tab-stack
     > .tab-content::after {
     counter-increment: tab-counter;
