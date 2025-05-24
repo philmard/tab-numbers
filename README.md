@@ -3,17 +3,19 @@
 Shows the Number corresponding to each Tab.
 This can help you navigate between Tabs faster by pressing Cmd + Number of the Tab. (or Ctrl + Number on Windows)
 
+#### ⚠️ v1.0.7
+
+- see [issue 16](https://github.com/philmard/tab-numbers/issues/16)
+
 #### Additions: (version 1.0.3 - current version)
 
 - Nicer Design for Expanded Tabs Mode
 - Ability to Change Background Colour, Background Shape
 - Tab Numbers' Side (left or right)
 
-
 Install my theme on Zen Browser: [Tab Numbers Theme](https://zen-browser.app/mods/22c9ec3b-7c62-46ae-991f-c8fff5046829)
 
 <img src="https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/22c9ec3b-7c62-46ae-991f-c8fff5046829/image.png" alt="Tab Numbers Image" width="500">
-
 
 Expanded Tabs Examples:
 
@@ -21,11 +23,9 @@ Expanded Tabs Examples:
 
 <img width="227" alt="tabs_blue_rectangular" src="https://github.com/user-attachments/assets/e0c3d48c-12c1-4db8-a519-260cb6687ad1">
 
-
 (example 2: orange background, round)
 
 <img width="230" alt="tabs_orange_circular" src="https://github.com/user-attachments/assets/df859dd3-7caa-4cdb-abec-0d017ff1e48a">
-
 
 (example 3: grey, left side)
 
@@ -35,8 +35,8 @@ What the preferences menu looks like:
 
 <img width="777" alt="image" src="https://github.com/user-attachments/assets/b4c29a0e-9a92-43e0-b959-d6b5707495ae" />
 
+#### Additions in previous versions:
 
-#### Additions in previous versions: 
 #### (version 1.0.2)
 
 - Set Custom Color for Tab Numbers (w/ Hex Code)
