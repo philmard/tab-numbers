@@ -3,11 +3,11 @@
 Shows the Number corresponding to each Tab.
 This can help you navigate between Tabs faster by pressing Cmd + Number of the Tab. (or Ctrl + Number on Windows)
 
-#### ⚠️ v1.0.7
+#### ⚠️ (version 1.0.7 - current version)
 
 - see [issue 16](https://github.com/philmard/tab-numbers/issues/16)
 
-#### Additions: (version 1.0.3 - current version)
+#### Additions: (version 1.0.3)
 
 - Nicer Design for Expanded Tabs Mode
 - Ability to Change Background Colour, Background Shape
