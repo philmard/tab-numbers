@@ -4,9 +4,11 @@
 tabs {
   counter-reset: tab-counter;
 } /* Automatically increment tab numbers for each .tab-content inside a tab */ /* Styles when the sidebar is expanded */
+tab:not([hidden]):not([zen-glance-tab="true"]) {
+  counter-increment: tab-counter;
+}
 @media (-moz-bool-pref: "zen.view.sidebar-expanded") {
   tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::after {
-    counter-increment: tab-counter;
     content: counter(
       tab-counter
     ); /* Space before the number */ /* Positioning and styling */
@@ -60,7 +62,6 @@ tabs {
       display: none; /* Hide the ::after pseudo-element first */
     }
     tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::before {
-      counter-increment: tab-counter;
       content: counter(
         tab-counter
       ); /* Space before the number */ /* Positioning and styling */
@@ -88,7 +89,6 @@ tabs {
 } /* Styles when the sidebar is NOT expanded (compact mode) */
 @media not (-moz-bool-pref: "zen.view.sidebar-expanded") {
   tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::before {
-    counter-increment: tab-counter;
     content: counter(tab-counter) "";
     position: absolute;
     top: 4px;
@@ -101,7 +101,6 @@ tabs {
   } /* Put tab numbers on the left side when compact_side="Left" (AND in compact mode) */
   :root:has(#theme-Tab-Numbers[uc-theme-compact_side="Left"]) {
     tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::before {
-      counter-increment: tab-counter;
       content: counter(tab-counter) "";
       position: absolute;
       top: 4px;
