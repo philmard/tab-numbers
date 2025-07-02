@@ -3,7 +3,11 @@
 Shows the Number corresponding to each Tab.
 This can help you navigate between Tabs faster by pressing Cmd + Number of the Tab. (or Ctrl + Number on Windows)
 
-#### ⚠️ (version 1.0.7 - current version)
+#### Additions: (version 1.0.8 - current version)
+
+- Ensured the tab counter is incremented only for tabs that are considered essential or within an active workspace.
+
+#### ⚠️ (version 1.0.7)
 
 - see [issue 16](https://github.com/philmard/tab-numbers/issues/16)
 
