@@ -1,5 +1,5 @@
 #vertical-pinned-tabs-container > .zen-workspace-tabs-section[hidden="true"] {
-  display: none !important;
+display: none !important;
 }
 tabs {
   counter-reset: tab-counter;
@@ -11,71 +11,10 @@ zen-workspace[active] tab:not([zen-glance-tab="true"]) {
 /* Stop counting tabs inside collapsed folders, except the folder's active tab */
 zen-folder:has(.tab-group-label[aria-expanded="false"]) tab:not([folder-active="true"]) {
   counter-increment: none;
-} /* Styles when the sidebar is expanded */
-@media (-moz-bool-pref: "zen.view.sidebar-expanded") {
-  tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::after {
-    content: counter(
-      tab-counter
-    ); /* Space before the number */ /* Positioning and styling */
-    font-weight: var(--bold-text, normal);
-    font-size: var(--font_size, 80%);
-    color: var(--number_color, inherit);
-    z-index: -100; /* Background and shape for the number */
-    display: inline-block;
-    background-color: var(
-      --number_background_color,
-      #717171d7
-    ); /* Change to any color */
-    text-align: center;
-    width: 20px; /* Width of the circular background */
-    height: 20px; /* Height of the circular background */
-    line-height: 20px; /* Vertically center the number inside the circle */
-    border-radius: var(
-      --background_shape,
-      20%
-    ); /* Default for Slightly Rounded Square */
-    margin-left: 3px;
-    margin-right: 3px; /* Changed to 3px to align with the Close Button */
-  }
-
-  /* Hide the "X" close button by default */
-  tab .tab-close-button {
-    visibility: hidden;
-    opacity: 0;
-    /* In order to not hide the tab title. [Can't make this work. It still hides the title] */
-    /* Also, display: none; doesn't seem to work */
-    width: 0;
-    margin: 0;
-  }
-
-  /*  Hide tab numbers on the right side when hovering over */
-  tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content:hover::after {
-    opacity: 0; /* Make it invisible */
-    width: 0; /* In order to bring the close button to the right */
-    margin: 0;
-  }
-
-  /* Hide the second icon when tab is pinned */
-  [zen-pinned-changed='true']:not([zen-essential]) .tab-reset-pin-button image {
-    opacity: 1 !important;
-  }
-  
-  [zen-pinned-changed='true']:not([zen-essential]) .tab-icon-image {
-    opacity: 0 !important;
-  }
-
-  /* Show the "X" close button on hover */
-  tab:hover .tab-close-button {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  /* Put tab numbers on the left side when expanded_side="Left" (AND in expanded mode) */
-  :root:has(#theme-Tab-Numbers[uc-theme-expanded_side="Left"]) {
+} /* Styles when the sidebar is expanded and normal compact setting */
+@media not (-moz-bool-pref: "uc.theme.force_compact_settings.enabled"){
+  @media (-moz-bool-pref: "zen.view.sidebar-expanded") {
     tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::after {
-      display: none; /* Hide the ::after pseudo-element first */
-    }
-    tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::before {
       content: counter(
         tab-counter
       ); /* Space before the number */ /* Positioning and styling */
@@ -86,8 +25,8 @@ zen-folder:has(.tab-group-label[aria-expanded="false"]) tab:not([folder-active="
       display: inline-block;
       background-color: var(
         --number_background_color,
-        #888888
-      ); /* Default color is light grey */
+        #717171d7
+      ); /* Change to any color */
       text-align: center;
       width: 20px; /* Width of the circular background */
       height: 20px; /* Height of the circular background */
@@ -97,9 +36,168 @@ zen-folder:has(.tab-group-label[aria-expanded="false"]) tab:not([folder-active="
         20%
       ); /* Default for Slightly Rounded Square */
       margin-left: 3px;
-      margin-right: 5px;
+      margin-right: 3px; /* Changed to 3px to align with the Close Button */
+    }
+
+    /* Hide the "X" close button by default */
+    tab .tab-close-button {
+      visibility: hidden;
+      opacity: 0;
+      /* In order to not hide the tab title. [Can't make this work. It still hides the title] */
+      /* Also, display: none; doesn't seem to work */
+      width: 0;
+      margin: 0;
+    }
+
+    /*  Hide tab numbers on the right side when hovering over */
+    tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content:hover::after {
+      opacity: 0; /* Make it invisible */
+      width: 0; /* In order to bring the close button to the right */
+      margin: 0;
+    }
+
+    /* Hide the second icon when tab is pinned */
+    [zen-pinned-changed='true']:not([zen-essential]) .tab-reset-pin-button image {
+      opacity: 1 !important;
+    }
+
+    [zen-pinned-changed='true']:not([zen-essential]) .tab-icon-image {
+      opacity: 0 !important;
+    }
+
+    /* Show the "X" close button on hover */
+    tab:hover .tab-close-button {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Put tab numbers on the left side when expanded_side="Left" (AND in expanded mode) */
+    :root:has(#theme-Tab-Numbers[uc-theme-expanded_side="Left"]) {
+      tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::after {
+        display: none; /* Hide the ::after pseudo-element first */
+      }
+      tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::before {
+        content: counter(
+          tab-counter
+        ); /* Space before the number */ /* Positioning and styling */
+        font-weight: var(--bold-text, normal);
+        font-size: var(--font_size, 80%);
+        color: var(--number_color, inherit);
+        z-index: -100; /* Background and shape for the number */
+        display: inline-block;
+        background-color: var(
+          --number_background_color,
+          #888888
+        ); /* Default color is light grey */
+        text-align: center;
+        width: 20px; /* Width of the circular background */
+        height: 20px; /* Height of the circular background */
+        line-height: 20px; /* Vertically center the number inside the circle */
+        border-radius: var(
+          --background_shape,
+          20%
+        ); /* Default for Slightly Rounded Square */
+        margin-left: 3px;
+        margin-right: 5px;
+      }
     }
   }
+
+} /* Styles when the sidebar is expanded and forcing compact number settings */
+@media (-moz-bool-pref: "uc.theme.force_compact_settings.enabled"){
+  @media (-moz-bool-pref: "zen.view.sidebar-expanded") {
+    tab:not([zen-glance-tab="true"], [zen-essential]) > .tab-stack > .tab-content::after { /* Essentials need new option with the other mod */
+      content: counter(tab-counter)""; /* Space before the number */ /* Positioning and styling */
+      font-weight: var(--bold-text, normal);
+      font-size: var(--font_size, 80%);
+      color: var(--number_color, inherit);
+      z-index: -100; /* Background and shape for the number */
+      position: absolute;
+      top: 4px;
+      left: 27.5px; /* Instead of right: 4px to make it shown on the right side of the icon */
+      padding: 0px 0px;
+      /* Change to any color */
+      /* Changed to 3px to align with the Close Button */
+    }
+
+    /* extra for essentials */
+    tab[zen-essential] > .tab-stack > .tab-content::after {
+      content: counter(tab-counter)""; /* Space before the number */ /* Positioning and styling */
+      font-weight: var(--bold-text, normal);
+      font-size: var(--font_size, 80%);
+      color: var(--number_color, inherit);
+      z-index: -100; /* Background and shape for the number */
+      position: relative;
+      top: -4px;
+      left: 1px; /* Instead of right: 4px to make it shown on the right side of the icon */
+      padding: 0px 0px;
+      /* Change to any color */
+      /* Changed to 3px to align with the Close Button */
+    }
+
+    /* Hide the "X" close button by default */
+    tab .tab-close-button {
+      visibility: hidden;
+      opacity: 0;
+      /* In order to not hide the tab title. [Can't make this work. It still hides the title] */
+      /* Also, display: none; doesn't seem to work */
+      width: 0;
+      margin: 0;
+    }
+
+    /*  Removed "Hide tab numbers on the right side when hovering over" not useful in forced mode*/
+
+    /* Hide the second icon when tab is pinned */
+    [zen-pinned-changed='true']:not([zen-essential]) .tab-reset-pin-button image {
+      opacity: 1 !important;
+    }
+
+    [zen-pinned-changed='true']:not([zen-essential]) .tab-icon-image {
+      opacity: 0 !important;
+    }
+
+    /* Show the "X" close button on hover */
+    tab:hover .tab-close-button {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Put tab numbers on the left side when expanded_side="Left" (AND in expanded mode) */
+    :root:has(#theme-Tab-Numbers[uc-theme-compact_side="Left"]) {
+      tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::after {
+        display: none; /* Hide the ::after pseudo-element first */
+      }
+      tab:not([zen-glance-tab="true"], [zen-essentials]) > .tab-stack > .tab-content::before {
+        content: counter(tab-counter)""; /* Space before the number */ /* Positioning and styling */
+        position: absolute;
+        top: 4px;
+        left: 1px;
+        padding: 0px 0px;
+        z-index: -100;
+        font-weight: var(--bold-text, normal);
+        font-size: var(
+          --font_size,
+          80%
+        ); /* Default font size (same as "Small") */
+        color: var(--number_color, inherit); /* Fallback to default color */
+      }
+      /* extra for essentials */
+      tab[zen-essential] > .tab-stack > .tab-content::before {
+        content: counter(tab-counter)""; /* Space before the number */ /* Positioning and styling */
+        font-weight: var(--bold-text, normal);
+        font-size: var(--font_size, 80%);
+        color: var(--number_color, inherit);
+        z-index: -100; /* Background and shape for the number */
+        position: relative;
+        top: -5px; /* slightly elevating the number */
+        left: -4px;
+        padding: 0px 0px;
+        /* Change to any color */
+        /* Changed to 3px to align with the Close Button */
+      }
+    }
+  }
+
 } /* Styles when the sidebar is NOT expanded (compact mode) */
 @media not (-moz-bool-pref: "zen.view.sidebar-expanded") {
   tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::before {
