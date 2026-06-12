@@ -106,7 +106,7 @@ zen-folder:has(.tab-group-label[aria-expanded="false"]) tab:not([folder-active="
 } /* Styles when the sidebar is expanded and forcing compact number settings */
 @media (-moz-bool-pref: "uc.theme.force_compact_settings.enabled"){
   @media (-moz-bool-pref: "zen.view.sidebar-expanded") {
-    tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::after {
+    tab:not([zen-glance-tab="true"], [zen-essential]) > .tab-stack > .tab-content::after { /* Essentials need new option with the other mod */
       content: counter(tab-counter)""; /* Space before the number */ /* Positioning and styling */
       font-weight: var(--bold-text, normal);
       font-size: var(--font_size, 80%);
@@ -114,7 +114,22 @@ zen-folder:has(.tab-group-label[aria-expanded="false"]) tab:not([folder-active="
       z-index: -100; /* Background and shape for the number */
       position: absolute;
       top: 4px;
-      left: 27.5px;
+      left: 27.5px; /* Instead of right: 4px to make it shown on the right side of the icon */
+      padding: 0px 0px;
+      /* Change to any color */
+      /* Changed to 3px to align with the Close Button */
+    }
+
+    /* extra for essentials */
+    tab[zen-essential] > .tab-stack > .tab-content::after {
+      content: counter(tab-counter)""; /* Space before the number */ /* Positioning and styling */
+      font-weight: var(--bold-text, normal);
+      font-size: var(--font_size, 80%);
+      color: var(--number_color, inherit);
+      z-index: -100; /* Background and shape for the number */
+      position: relative;
+      top: -4px;
+      left: 1px; /* Instead of right: 4px to make it shown on the right side of the icon */
       padding: 0px 0px;
       /* Change to any color */
       /* Changed to 3px to align with the Close Button */
@@ -130,12 +145,7 @@ zen-folder:has(.tab-group-label[aria-expanded="false"]) tab:not([folder-active="
       margin: 0;
     }
 
-    /*  Hide tab numbers on the right side when hovering over */
-    tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content:hover::after {
-      opacity: 0; /* Make it invisible */
-      width: 0; /* In order to bring the close button to the right */
-      margin: 0;
-    }
+    /*  Removed "Hide tab numbers on the right side when hovering over" not useful in forced mode*/
 
     /* Hide the second icon when tab is pinned */
     [zen-pinned-changed='true']:not([zen-essential]) .tab-reset-pin-button image {
@@ -157,7 +167,7 @@ zen-folder:has(.tab-group-label[aria-expanded="false"]) tab:not([folder-active="
       tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::after {
         display: none; /* Hide the ::after pseudo-element first */
       }
-      tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::before {
+      tab:not([zen-glance-tab="true"], [zen-essentials]) > .tab-stack > .tab-content::before {
         content: counter(tab-counter)""; /* Space before the number */ /* Positioning and styling */
         position: absolute;
         top: 4px;
@@ -170,6 +180,20 @@ zen-folder:has(.tab-group-label[aria-expanded="false"]) tab:not([folder-active="
           80%
         ); /* Default font size (same as "Small") */
         color: var(--number_color, inherit); /* Fallback to default color */
+      }
+      /* extra for essentials */
+      tab[zen-essential] > .tab-stack > .tab-content::before {
+        content: counter(tab-counter)""; /* Space before the number */ /* Positioning and styling */
+        font-weight: var(--bold-text, normal);
+        font-size: var(--font_size, 80%);
+        color: var(--number_color, inherit);
+        z-index: -100; /* Background and shape for the number */
+        position: relative;
+        top: -5px; /* slightly elevating the number */
+        left: -4px;
+        padding: 0px 0px;
+        /* Change to any color */
+        /* Changed to 3px to align with the Close Button */
       }
     }
   }

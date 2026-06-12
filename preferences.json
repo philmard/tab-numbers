@@ -83,7 +83,7 @@
   },
   {
     "property": "uc.theme.force_compact_settings.enabled",
-    "label": "Always use Compact settings",
+    "label": "Always use Compact settings (Best use with 'Sidebar expand on hover' mod )",
     "type": "checkbox",
     "disabledOn": []
   },
